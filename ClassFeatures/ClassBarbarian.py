@@ -8,7 +8,8 @@ if ClassBarbarian==True:
     PlayerManaMax = 0
     PlayerManaCurrent = 0
     PlayerDamage = 5
-    PlayerDodgeChance = 0
+    PlayerDodgeChance = 5
     PlayerHitChance = 65
     Axe=True
     ArmorHeavy=True
+

@@ -1,6 +1,7 @@
 
-from EquipmentVariables import *
+from ItemsWhenEquipped import *
 from PlayerVariables import *
+from EquipmentVariables import *
 
 
 if ArmorLight == True:
@@ -11,11 +12,15 @@ if ArmorHeavy == True:
         
 if Sword == True:
     PlayerDamage=4 + AttackModifier
+    CanCastSpell = False
  
 
 if Staff == True:
     PlayerManaMax=10 + ManaModifier
+    CanCastSpell = True
     
 if Axe == True:
     PlayerDamage=5 + AttackModifier
+    CanCastSpell = False
+
  

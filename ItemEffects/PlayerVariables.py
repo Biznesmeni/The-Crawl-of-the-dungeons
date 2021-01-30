@@ -6,4 +6,3 @@ PlayerDamage = 0
 PlayerDefense = 0
 PlayerDodgeChance = 0
 PlayerHitChance = 0
-CanCastSpell = False
