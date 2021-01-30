@@ -9,6 +9,8 @@ if ClassDruid == True:
     PlayerHealthCurrent = 8
     PlayerDamage = 2
     Staff = True
+    PlayerDodgechance = 5
+    PlayerHitChance = 70
 print (playerManaMax)
     
     
