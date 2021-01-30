@@ -1,6 +1,6 @@
-PlayerhealthMax=10
-PlayerHealthCurrent=10
+PlayerhealthMax=0
+PlayerHealthCurrent=0
 PlayerManaMax=0
-PlayermanaCurrent=0
-PlayerDamage=1
+PlayerManaCurrent=0
+PlayerDamage=0
 PlayerDefense=0
