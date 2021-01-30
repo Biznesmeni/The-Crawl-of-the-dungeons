@@ -1,5 +1,6 @@
 
-import EquipmentVariables
+from EquipmentVariables import *
+from PlayerVariables import *
 
 
 if Armor == True:
@@ -7,3 +8,6 @@ if Armor == True:
         
 if Sword == True:
     PlayerDamage=3
+
+if Staff == True:
+    PlayerManaMax=10
