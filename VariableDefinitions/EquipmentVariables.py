@@ -8,5 +8,5 @@ ArrowsMax=0
 Bow=False
 Axe=False
 Staff=False
-Armor=False
-
+ArmorLight=False
+ArmorHeavy=False
