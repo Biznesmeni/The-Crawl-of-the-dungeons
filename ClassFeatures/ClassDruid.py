@@ -13,6 +13,7 @@ if ClassDruid == True:
     Staff = True
     PlayerDodgechance = 5
     PlayerHitChance = 70
+print(PlayerDamage)
     
     
     
