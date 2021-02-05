@@ -1,30 +1,51 @@
 import pygame #importē pygame lai var izmantot funkcijas
 import sys
 
+res = 960, 540
+
+GameLogoImg = pygame.image.load('PlaceHolderLogo.png')#Šeit jāieliek spēles logo, vai titles.
+GamelogoX = 0#kur atradīsies attēls y asī
+GameLogoY = 0#kur atradīsies attēls y asī
+
 BackgroundImg = pygame.image.load('Background_Menu(PlaceHolder).png')#atrod attēlu folderī
 BackgroundX = 0 #kur atradīsies attēls x asī
 BackgroundY = 0 #kur atradīsies attēls y asī
 
-GameLogoImg = pygame.image.load('PlaceHolderLogo.png')#Šeit jāieliek spēles logo, vai titles.
-GamelogoX = 0
-GameLogoY = 0
+button_START = pygame.image.load('StartUnclicked(PlaceHolder).png')
+button_START2 = pygame.image.load('StartClicked(PlaceHolder).png')
+button_STARTx = 20#kur atradīsies attēls y asī
+button_STARTy = 300#kur atradīsies attēls y asī
 
-def PlayMusic():
+
+def CursorReplace():#izveido jaunu funkciju
+    cursor_img = pygame.image.load('CursorPlaceholder.png')#Šī līnija atrod vajadzīgo attēlu
+    pygame.mouse.set_visible(False)#Šī līnija padara kursoru neredzamu
+    xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
+    screen.blit(cursor_img, (xy))#Šī līnija printē izvēlēto attēlu kursora vietā
+    
+def Button(): #izveido jaunu funkciju
+    xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
+    screen.blit(button_START,(button_STARTx, button_STARTy))
+    buttonSTARTrect = button_START.get_rect()
+    if buttonSTARTrect.left <= xy[0] <= buttonSTARTrect.right and buttonSTARTrect.top <= xy[1] <= buttonSTARTrect.bottom:   
+        print(xy)
+        
+def PlayMusic():#izveido jaunu funkciju
     pygame.mixer.music.load('MainMenu.wav') #Šī komanda atrod mūzikas failu
     pygame.mixer.music.play(-1) #Šī komanda spēlē mūziku bezgalīgi
 
 def background():#izveido jaunu funkciju
     screen.blit(BackgroundImg, (BackgroundX,BackgroundY)) #izprintē pasu attēlu
 
-def GameLogo():
+def GameLogo():#izveido jaunu funkciju
     screen.blit(GameLogoImg, (GamelogoX, GameLogoY))    
 
-def PlaySound():
+def PlaySound():#izveido jaunu funkciju
     hoverSound = pygame.mixer.Sound('')
   
 pygame.init()#vajadzīgs, lai inicializētu funkcijas
 
-screen = pygame.display.set_mode((960,540))#izveido ekrānu (width,heigth)
+screen = pygame.display.set_mode((res))#izveido ekrānu (width,heigth)
 
 pygame.display.set_caption('Piemērs')#Pārmaina ekrāna spēles nosaukumu ekrāna kreisajā augšā
 
@@ -34,7 +55,7 @@ pygame.display.set_icon(icon)#Uzliek o Ikonu ekrāna stūrī
 PlayMusic()#aktivizē definēto darbību
 
 running = True
-while running:#Pārbauda, vai spēle strādā, arī uztver, ja aiztaisa to ciet.  
+while running:#Pārbauda, vai spēle strādā, arī uztver, ja aiztaisa to ciet.
     for event in pygame.event.get():#Pārbauda, vai kaut kas notiek
         if event.type == pygame.QUIT:#uztver klikšķi uz x pogas
             running = False
@@ -42,11 +63,16 @@ while running:#Pārbauda, vai spēle strādā, arī uztver, ja aiztaisa to ciet.
             sys.exit()
     screen.fill((255,165,0))#aizkrāso ekrānu oranžu RGB - (Red, Green, Blue)
     
-    #ieprieks veidotā funkcija
+    
     
     GameLogo()#ieprieks veidotā funkcija
     
     background()#ieprieks veidotā funkcija
     
+    Button()#ieprieks veidotā funkcija
+    
+    CursorReplace()#ieprieks veidotā funkcija\
+    
     pygame.display.update()#Updato ekrānu, lai izdēstu bijusos frames.
+    
     
