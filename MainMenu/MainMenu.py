@@ -4,8 +4,15 @@ BackgroundImg = pygame.image.load('Background_Menu(PlaceHolder).png')#atrod att�
 BackgroundX = 0 #kur atradīsies attēls x asī
 BackgroundY = 0 #kur atradīsies attēls y asī
 
+GameLogoImg = pygame.image.load('')#Šeit jāieliek spēles logo, vai titles.
+GamelogoX = 0
+GameLogoY = 0
+
 def background():#izveido jaunu funkciju
     screen.blit(BackgroundImg, (BackgroundX,BackgroundY)) #izprintē pāsu attēlu
+
+def GameLogo():
+    screen.blit(GameLogoImg, (GamelogoX, GameLogoY))
     
  
   
@@ -25,7 +32,10 @@ while running:
             running = False
     # screen.fill((255,165,0))#aizkrāso ekrānu oranžu RGB - (Red, Green, Blue)
     
+    GameLogo()
+    
     background()#iepriek veidotā funkcija
+    
     pygame.display.update()#Updato ekrānu, lai izdēstu bijusos framus.
     
     
