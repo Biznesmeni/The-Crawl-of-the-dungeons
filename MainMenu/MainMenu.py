@@ -2,6 +2,8 @@ import pygame #importē pygame lai var izmantot funkcijas
 import sys
 import time
 
+pygame.init()#vajadzīgs, lai inicializētu funkcijas
+
 class Sounds:
     def __init__(self, sound_file):
         if not pygame.mixer.get_init():
@@ -21,7 +23,7 @@ class Sounds:
 
 res = 960, 540
 
-pygame.init()#vajadzīgs, lai inicializētu funkcijas
+
 
 screen = pygame.display.set_mode((res))#izveido ekrānu (width,heigth)
 
@@ -42,13 +44,12 @@ button_START = pygame.image.load('StartUnclicked(PlaceHolder).png')
 button_START2 = pygame.image.load('StartClicked(PlaceHolder).png')
 button_STARTx = 20#kur atradīsies attēls y asī
 button_STARTy = 300#kur atradīsies attēls y asī
-button_rect = button_STARTx, button_STARTy
 
 #button_sound = pygame.mixer.Sound('ButtonSound(Placeholder).wav')
 button_START_sound = Sounds('ButtonSound(Placeholder).wav')
 
 def CursorReplace():#izveido jaunu funkciju
-    cursor_img = pygame.image.load('CursorPlaceholder.png')#Šī līnija atrod vajadzīgo attēlu
+    cursor_img = pygame.image.load('Cursor.png')#Šī līnija atrod vajadzīgo attēlu
     pygame.mouse.set_visible(False)#Šī līnija padara kursoru neredzamu
     xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
     screen.blit(cursor_img, (xy))#Šī līnija printē izvēlēto attēlu kursora vietā
