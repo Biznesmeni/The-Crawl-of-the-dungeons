@@ -29,7 +29,7 @@ screen = pygame.display.set_mode((res))#izveido ekrānu (width,heigth)
 
 pygame.display.set_caption('Piemērs')#Pārmaina ekrāna spēles nosaukumu ekrāna kreisajā augšā
 
-icon = pygame.image.load('Sprite-0002.png')#Dabū attēlu ikonai, jābūt 32x32 pikseļi
+icon = pygame.image.load('icon.png')#Dabū attēlu ikonai, jābūt 32x32 pikseļi
 pygame.display.set_icon(icon)#Uzliek o Ikonu ekrāna stūrī
 
 GameLogoImg = pygame.image.load('PlaceHolderLogo.png')#Šeit jāieliek spēles logo, vai titles.
