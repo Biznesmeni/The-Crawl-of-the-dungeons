@@ -56,12 +56,12 @@ def CursorReplace():#izveido jaunu funkciju
     
 def Button(): #izveido jaunu funkciju
     xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
-    screen.blit(button_START,(button_STARTx, button_STARTy))
     buttonSTARTrect = button_START.get_rect()
     if buttonSTARTrect.left+button_STARTx <= xy[0] <= buttonSTARTrect.right+button_STARTx and buttonSTARTrect.top+button_STARTy <= xy[1] <= buttonSTARTrect.bottom+button_STARTy:#nosaka, vai kursors atrodas pareizajā vietā     
         button_START_sound.play()
-
+        screen.blit(button_START2, (button_STARTx, button_STARTy))
     else:
+        screen.blit(button_START, (button_STARTx, button_STARTy))
         button_START_sound.activate(False)
             
 def PlayMusic():#izveido jaunu funkciju
@@ -79,23 +79,23 @@ PlayMusic()
 
 running = True
 
+
 while running:#Pārbauda, vai spēle strādā, arī uztver, ja aiztaisa to ciet.
     for event in pygame.event.get():#Pārbauda, vai kaut kas notiek
         if event.type == pygame.QUIT:#uztver klikšķi uz x pogas
             running = False
             pygame.quit()
             sys.exit()
-    screen.fill((0,0,0))#aizkrāso ekrānu oranžu RGB - (Red, Green, Blue)
    
+     
+    screen.fill((0,0,0))#aizkrāso ekrānu oranžu RGB - (Red, Green, Blue)
     Button()#ieprieks veidotā 
-    
-
-
+    CursorReplace()#ieprieks veidotā funkcija\  
     background()#ieprieks veidotā funkcija  
     
     GameLogo()#ieprieks veidotā funkcija
         
-    CursorReplace()#ieprieks veidotā funkcija\    
+     
  
     
 
