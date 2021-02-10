@@ -32,6 +32,8 @@ while running:#Pārbauda, vai spēle strādā, arī uztver, ja aiztaisa to ciet.
      
     screen.fill((0,0,0))#aizkrāso ekrānu oranžu RGB - (Red, Green, Blue)
     
+    referenceCode.Button('StartUnclicked(PlaceHolder).png', 'StartClicked(PlaceHolder).png', 20, 400, button_START_sound, screen)
+    
     referenceCode.Button('StartUnclicked(PlaceHolder).png', 'StartClicked(PlaceHolder).png', 20, 300, button_START_sound, screen)#ieprieks veidotā 
     
     referenceCode.CursorReplace('Cursor.png', screen)#ieprieks veidotā funkcija

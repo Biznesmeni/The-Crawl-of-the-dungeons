@@ -41,8 +41,8 @@ def PlayMusic(music):#izveido jaunu funkciju
     pygame.mixer.music.play(-1) #Šī komanda spēlē mūziku bezgalīgi
 
 
-def background(x, screen):#izveido jaunu funkciju
-    BackgroundImg = pygame.image.load(x)#atrod attēlu folderī
+def background(background_img, screen):#izveido jaunu funkciju
+    BackgroundImg = pygame.image.load(background_img)#atrod attēlu folderī
     BackgroundX = 0 #kur atradīsies attēls x asī
     BackgroundY = 0 #kur atradīsies attēls y asī
     screen.blit(BackgroundImg, (BackgroundX,BackgroundY)) #izprintē pasu attēlu
