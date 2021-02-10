@@ -11,7 +11,7 @@ icon = pygame.image.load('icon.png')#Dabū attēlu ikonai, jābūt 32x32 pikseļ
 pygame.display.set_icon(icon)#Uzliek o Ikonu ekrāna stūrī
 
 
-res = 960, 560
+res = 1960, 1000
 screen = pygame.display.set_mode((res))#izveido ekrānu (width,heigth)
 
 #button_sound = pygame.mixer.Sound('ButtonSound(Placeholder).wav')
