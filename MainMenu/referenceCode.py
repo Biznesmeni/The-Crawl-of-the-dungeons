@@ -13,7 +13,7 @@ class Sounds:
         
     def play(self):
         if not (self.channel and self.channel.get_busy()) and not self.activated:
-            self.channel = self.sound.play(loops=1, maxtime=500)
+            self.channel = self.sound.play(loops=1, maxtime=290)
             self.activate(True)
 
 def CursorReplace(cursor_img, screen):#izveido jaunu funkciju
@@ -22,7 +22,35 @@ def CursorReplace(cursor_img, screen):#izveido jaunu funkciju
     xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
     screen.blit(cursor_img, (xy))#Šī līnija printē izvēlēto attēlu kursora vietā
     
-def Button(first, second, x, y, sound, screen): #izveido jaunu funkciju
+def ButtonStart(first, second, x, y, sound, screen): #izveido jaunu funkciju
+    button = pygame.image.load(first)
+    button2 = pygame.image.load(second)
+    buttonx = x#kur atradīsies attēls y asī
+    buttony = y#kur atradīsies attēls y asī
+    xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
+    buttonrect = button.get_rect()
+    if buttonrect.left+buttonx <= xy[0] <= buttonrect.right+buttonx and buttonrect.top+buttony <= xy[1] <= buttonrect.bottom+buttony:#nosaka, vai kursors atrodas pareizajā vietā     
+        sound.play()
+        screen.blit(button2, (buttonx, buttony))
+    else:
+        screen.blit(button, (buttonx, buttony))
+        sound.activate(False)
+        
+def ButtonOption(first, second, x, y, sound, screen):
+      button = pygame.image.load(first)
+      button2 = pygame.image.load(second)
+      buttonx = x#kur atradīsies attēls y asī
+      buttony = y#kur atradīsies attēls y asī
+      xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
+      buttonrect = button.get_rect()
+      if buttonrect.left+buttonx <= xy[0] <= buttonrect.right+buttonx and buttonrect.top+buttony <= xy[1] <= buttonrect.bottom+buttony:#nosaka, vai kursors atrodas pareizajā vietā     
+          sound.play()
+          screen.blit(button2, (buttonx, buttony))
+      else:
+          screen.blit(button, (buttonx, buttony))
+          sound.activate(False)
+    
+def ButtonQuit(first, second, x, y, sound, screen):
     button = pygame.image.load(first)
     button2 = pygame.image.load(second)
     buttonx = x#kur atradīsies attēls y asī
