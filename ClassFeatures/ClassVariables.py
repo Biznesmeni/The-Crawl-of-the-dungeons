@@ -1,3 +1,0 @@
-ClassDruid=False
-ClassBarbarian=False
-ClassHunter=False

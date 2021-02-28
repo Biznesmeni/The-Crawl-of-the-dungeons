@@ -16,31 +16,27 @@ class Sounds:
         if not (self.channel and self.channel.get_busy()) and not self.activated:
             self.channel = self.sound.play(loops=1, maxtime=290)
             self.activate(True)
-def Movement():
-    main = True    
-    while main:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit(); sys.exit()
-                main = False
+            
+def Movement(event, velocity1, velocity2, velocity3, currentx, currenty):
+    if event.type == pygame.KEYDOWN:
+        if event.key == pygame.K_LEFT or event.key == ord('a'):
+            print('left')
+            currentx = currentx + 2
+        if event.key == pygame.K_RIGHT or event.key == ord('d'):
+            print('right')
+            currentx = currentx - 2
+        if event.key == pygame.K_UP or event.key == ord('w'):
+            print('jump')
     
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_LEFT or event.key == ord('a'):
-                    print('left')
-                if event.key == pygame.K_RIGHT or event.key == ord('d'):
-                    print('right')
-                if event.key == pygame.K_UP or event.key == ord('w'):
-                    print('jump')
-    
-            if event.type == pygame.KEYUP:
-                if event.key == pygame.K_LEFT or event.key == ord('a'):
-                    print('left stop')
-                if event.key == pygame.K_RIGHT or event.key == ord('d'):
-                    print('right stop')
-                if event.key == ord('q'):
-                    pygame.quit()
-                    sys.exit()
-                    main = False 
+    if event.type == pygame.KEYUP:
+        if event.key == pygame.K_LEFT or event.key == ord('a'):
+            print('left stop')
+        if event.key == pygame.K_RIGHT or event.key == ord('d'):
+            print('right stop')
+        if event.key == ord('q'):
+            pygame.quit()
+            sys.exit()
+                    
                     
 def CursorReplace(cursor_img, screen):#izveido jaunu funkciju
     cursor_img = pygame.image.load(cursor_img)#Šī līnija atrod vajadzīgo attēlu
@@ -48,9 +44,10 @@ def CursorReplace(cursor_img, screen):#izveido jaunu funkciju
     xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
     screen.blit(cursor_img, (xy))#Šī līnija printē izvēlēto attēlu kursora vietā
     
-def ButtonStart(first, second, x, y, sound, screen): #izveido jaunu funkciju
-    button = pygame.image.load(first)
-    button2 = pygame.image.load(second)
+def ButtonStart(firstImg, secondImg, x, y, sound, screen): #izveido jaunu funkciju
+    button = pygame.image.load(firstImg)
+    button2 = pygame.image.load(secondImg)
+    ev = pygame.event.get()
     buttonx = x#kur atradīsies attēls y asī
     buttony = y#kur atradīsies attēls y asī
     xy = pygame.mouse.get_pos()#Šī līnija atrod kursora x un y koordinātes
@@ -58,6 +55,10 @@ def ButtonStart(first, second, x, y, sound, screen): #izveido jaunu funkciju
     if buttonrect.left+buttonx <= xy[0] <= buttonrect.right+buttonx and buttonrect.top+buttony <= xy[1] <= buttonrect.bottom+buttony:#nosaka, vai kursors atrodas pareizajā vietā     
         sound.play()
         screen.blit(button2, (buttonx, buttony))
+        for event in ev:
+            print('dsa')
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                print('dasd')
     else:
         screen.blit(button, (buttonx, buttony))
         sound.activate(False)
@@ -93,6 +94,6 @@ def GameLogo(logo_img, screen):#izveido jaunu funkciju
     GameLogoY = 0#kur atradīsies attēls y asī
     screen.blit(GameLogoImg, (GamelogoX, GameLogoY))  
 
-def PlayerStartPos (x, y, PlayerImg, screen):
+def PlayerImage (x, y, PlayerImg, screen):
     PlayerImage = pygame.image.load(PlayerImg)
     screen.blit(PlayerImage, (x, y))
